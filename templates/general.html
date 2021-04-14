@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Guild Information</title>
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+    font-size: large;
+}
+
+header{
+    background-color: #363847;
+    height: 100vh;
+}
+
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.6s ease;
+}
+
+ul li a:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+ul li.active a{
+    background-color: #fff;
+    color: #000;
+}
+
+.logo img{
+    float:left;
+    width: 150px;
+    height: auto;
+}
+
+.main{
+    max-width: 12000px;
+    margin: auto;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.title h1{
+    color: #fff;
+    font-size: 70px;
+}
+
+.title h3{
+    color: #fff;
+    font-size: 40px;
+    margin-left: 30px;
+}
+.title p{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.title img{
+    width: 250px;
+    height: auto;
+}
+
+.button{
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.btnAdd{
+    border: 1px solid #00B7FF;
+    padding: 10px 30px;
+    background-color: #00B7FF;
+    color:#fff;
+    text-decoration: none;
+    transition: 0.6s ease;
+}
+
+.btn{
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6s ease;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.btnAdd:hover{
+    background-color: #007EFF;
+    color: #fff;
+}
+    </style>
+    <header>
+        <div class="main">
+            <div class="logo">
+                <img src="../static/logo.png">
+                
+            </div>
+            <ul>
+                <li class="active"><a href="#">{{guild['name']}}</a></li>
+                <li><a href="/support">Support</a>
+                <li><a href="/guild/{{guild['id']}}">Back to Overview</a>
+                <li><a href="/dashboard">Back to Guilds</a>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>General Information for {{guild['name']}}</h1>
+            <p>Name : {{ guild['name'] }}<br>Description : {{ guild['description'] }}<br>Region : {{ guild['region'] }}<br>AFK Timeout: {{ guild['afk_timeout']}} Seconds<br></p>
+        </div>
+        
+    </header>
+</body>
+</html>
