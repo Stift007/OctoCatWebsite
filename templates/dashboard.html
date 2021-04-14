@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctoCat Dashboard 0.0.1</title>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+    
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Aries Bold;
+            font-size: large;
+        }
+
+    
+
+        header{
+            background-color: #363847;
+            height: 100vh;
+        }
+        
+
+        /* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #363847;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.6s ease;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: #363847;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a background color to navbar links on hover */
+  background-color: #fff;
+  color: #000;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #363847
+  color: #000;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+        .logo img{
+            float:left;
+            width: 150px;
+            height: auto;
+        }
+
+        .main{
+            max-width: 12000px;
+            margin: auto;
+        }
+
+        .title{
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .title h1{
+            color: #fff;
+            font-size: 70px;
+        }
+
+        .title h3{
+            color: #fff;
+            font-size: 40px;
+            margin-left: 30px;
+        }
+
+        .button{
+            position: absolute;
+            top: 63%;
+            left: 50%;
+            margin: auto;
+            transform: translate(-50%,-50%);
+        }
+
+        .btnAdd{
+            border: 1px solid #00B7FF;
+            padding: 10px 30px;
+            background-color: #00B7FF;
+            color:#fff;
+            text-decoration: none;
+            transition: 0.6s ease;
+        }
+
+        .btn{
+            border: 1px solid #fff;
+            padding: 10px 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.6s ease;
+        }
+
+        .btn:hover{
+            background-color: #fff;
+            color: #000;
+        }
+
+        .btnAdd:hover{
+            background-color: #007EFF;
+            color: #fff;
+        }
+    </style>
+    <header>
+        <div class="title">
+            <h1>OctoCat Dashboard</h1>
+            <h3>Please select a Server</h3>    
+        </div>
+        <div class="main">
+            <div class="logo">
+                <img src="../static/logo.png">
+                
+            </div>
+
+            <ul>
+                <div class="navbar">
+                    <a href="#home">Home</a>
+                    <a href="#news">FAQ</a>
+                    <div class="dropdown">
+                    <button class="dropbtn">Profile Settings <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">Dashboard</a>
+                        <a href="#">Settings</a>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Free Stuff</a>
+                        <a href="/">Log off</a>
+                    </div>
+                </div>
+            </ul>
+
+        </div>
+
+      
+        
+        <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                }
+            }
+            }
+        }
+        </script>
+        <ol>
+            <div class="button">
+                {% for guild in guilds %}
+                    <a class="btn" href="/guild/{{guild['id']}}">{{guild['name']}}</a>
+                    <br>
+                    <br>
+                    <br>    
+                {% endfor %}
+            </div>
+        </ol>
+    </header>
+</body>
+</html>
