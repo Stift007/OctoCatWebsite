@@ -1,0 +1,20 @@
+<!DOCTYPE octoscript>
+<oc>
+  <data>
+    export . templates
+  </data>
+  <ctrl>
+    owner Stift007
+    coowner d.
+    name octosite/template
+  </ctrl>
+  <autorun>
+    <python>
+      print("TEMPLATES is active")
+    </python>
+  </autorun>
+  <requires>
+    .pythonmodule flask
+    .pythonmodule discord
+  </requires>
+</oc>
