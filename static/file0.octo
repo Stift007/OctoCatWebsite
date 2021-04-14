@@ -1,0 +1,20 @@
+<!DOCTYPE octoscript>
+<oc>
+  <data>
+    export . static
+  </data>
+  <ctrl>
+    owner Stift007
+    coowner d.
+    name octosite/static
+  </ctrl>
+  <autorun>
+    <python>
+      print("STATIC is active")
+    </python>
+  </autorun>
+  <requires>
+    .pythonmodule flask
+    .pythonmodule discord
+  </requires>
+</oc>
