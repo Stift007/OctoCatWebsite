@@ -2,7 +2,7 @@ import requests
 
 class Oauth:
     client_id         = "820308868705812491"
-    client_secret     = "6WdMRLnpArSobc5xSEXhzrTYowwG2mwR"
+    client_secret     = "..."
     redirect_uri      = "http://127.0.0.1:5000/login"
     scope             = "identify%20email%20guilds"
     discord_login_url = "https://discord.com/api/oauth2/authorize?client_id=820308868705812491&redirect_uri=http%3A%2F%2F127.0.0.1%3A5000%2Flogin&response_type=code&scope=guilds%20identify%20email"
